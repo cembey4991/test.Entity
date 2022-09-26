@@ -1,7 +1,5 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Caching.Distributed;
-using Newtonsoft.Json;
-using System.Text;
 using test.Infrastructure.CQRS.Queries.Request.ProductQueryRequest;
 using test.Infrastructure.CQRS.Queries.Response.ProductQueryResponse;
 using test.Infrastructure.Interfaces;

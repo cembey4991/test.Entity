@@ -22,7 +22,7 @@ namespace test.Infrastructure.CQRS.Handler.CommandsHandlers.ProductHandler
         public async Task<CommandResponse> Handle(CommandRequest request, CancellationToken cancellationToken)
         {
             var addProduct = _collection.InsertOneAsync(request.Product);
-            if(addProduct != null)
+            if (addProduct != null)
             {
                 return new CommandResponse(request.Product);
             }
@@ -33,7 +33,7 @@ namespace test.Infrastructure.CQRS.Handler.CommandsHandlers.ProductHandler
                 return new CommandResponse(request.Product);
             }
             var deleteProduct = _collection.DeleteOne(request.Product.Id);
-            
+
             return new CommandResponse(product: request.Product);
         }
     }

@@ -51,26 +51,26 @@ namespace test.API.Controllers
         [EnableQuery]
         public async Task<IActionResult> GetAllProducts([FromQuery] GetAllProductQueryRequest request)
         {
-           List<GetAllProductQueryResponse> response = await _mediatR.Send(request );
-            
-          
+            List<GetAllProductQueryResponse> response = await _mediatR.Send(request);
+
+
             var result = _productService.GetAll();
             return Ok(result);
             //return Ok(_productService.GetAllProducts());
         }
         [HttpGet]
         [EnableQuery]
-        public async Task<IActionResult> GetProductById([FromQuery]GetByIdProductQueryRequest request)
+        public async Task<IActionResult> GetProductById([FromQuery] GetByIdProductQueryRequest request)
         {
-             GetByIdProductQueryResponse response = await _mediatR.Send(request);
-        
+            GetByIdProductQueryResponse response = await _mediatR.Send(request);
+
             return Ok(_productService.FindById(request.ProductId));
 
             //var result = _productService.FindById(id);
             //return Ok(result);
         }
 
-      
+
         [HttpPost]
         public async Task<IActionResult> AddProduct(AddProductCommandRequest request)
         {
@@ -79,14 +79,14 @@ namespace test.API.Controllers
             var result = await _productService.InsertOneAsync(addProductDto);
             return Ok(result);
         }
-                  
+
 
         [HttpDelete]
         public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest request)
         {
             DeleteProductCommandResponse response = await _mediatR.Send(request);
-           // var addProductDto = _mapper.Map<ProductDto>(response);
-          
+            // var addProductDto = _mapper.Map<ProductDto>(response);
+
             await _productService.DeleteById(request.Id);
             return NoContent();
         }
@@ -104,7 +104,7 @@ namespace test.API.Controllers
             var addProductDto = _mapper.Map<ProductDto>(response.Product);
             var result = await _productService.InsertOneAsync(addProductDto);
             return Ok(result);
-          
+
         }
         [HttpPut]
         public async Task<IActionResult> UpdateProductCommandHandler(CommandRequest request)

@@ -1,8 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Caching.Distributed;
 using MongoDB.Driver;
-using Newtonsoft.Json;
-using System.Text;
 using test.Entity.Entities;
 using test.Infrastructure.CQRS.Commands.Request.ProductRequest;
 using test.Infrastructure.CQRS.Commands.Response.ProductResponse;

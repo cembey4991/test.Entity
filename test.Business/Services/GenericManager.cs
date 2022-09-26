@@ -67,7 +67,7 @@ namespace test.Business.Services
             var entity = _mapper.Map<TDocument>(tDto);
             var result = await _repository.InsertOne(entity);
             return result;
-          
+
         }
 
         //public async Task ReplaceOne(TDto tDto)
@@ -77,15 +77,15 @@ namespace test.Business.Services
 
         //}
 
-        public  async Task<TDto> InsertOneAsync(TDto tDto)
+        public async Task<TDto> InsertOneAsync(TDto tDto)
         {
             var entity = _mapper.Map<TDocument>(tDto);
             var result = await _repository.InsertOneAsync(entity);
-            return tDto ;
+            return tDto;
         }
 
 
-       
+
         public IEnumerable<TDto> GetAll(Expression<Func<TDto, bool>> expression = null)
         {
             var predicate = _mapper.Map<Expression<Func<TDocument, bool>>>(expression);
@@ -93,7 +93,7 @@ namespace test.Business.Services
 
         }
 
-        public  async Task<TDocument> ReplaceOne(TDto tDto)
+        public async Task<TDocument> ReplaceOne(TDto tDto)
         {
             var entity = _mapper.Map<TDocument>(tDto);
             var result = await _repository.ReplaceOne(entity);

@@ -53,9 +53,9 @@ namespace test.Infrastructure.Repositories
             return table;
         }
 
-        public   async Task<TDocument> InsertOneAsync(TDocument document)
+        public async Task<TDocument> InsertOneAsync(TDocument document)
         {
-           _collection.InsertOneAsync(document);
+            _collection.InsertOneAsync(document);
             return document;
         }
 
